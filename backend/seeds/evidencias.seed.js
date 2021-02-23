@@ -7,28 +7,28 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true })
 
 const evidencias = [
   {
-    nombre: "Oscar Ricardo",
-    aPaterno: "Pérez",
-    aMaterno: "Lomes",
+    nombre: "jjjjjjjj",
+    aPaterno: "jjjjjjjj",
+    aMaterno: "jjjjjjjj",
     fechaEntrega:21/01/21,
     materia:"Español",
     numeroActividad:1,
     grado: 3,
     grupo: "B",
-    telefono:7353501617,
+    telefono:7777777777,
     nombreEvidencia:"node.svg",
     evidencias: []
   },
   {
-    nombre: "Esteban",
-    aPaterno: "Pérez",
-    aMaterno: "Lomes",
+    nombre: "KKKKKKKK",
+    aPaterno: "KKKKKKKK",
+    aMaterno: "KKKKKKKK",
     fechaEntrega:19/01/21,
     materia:"Matematicas",
     numeroActividad:5,
     grado: 3,
     grupo: "B",
-    telefono:7351418812,
+    telefono:7777777777,
     nombreEvidencia:"node.svg",
     evidencias: []
   }
