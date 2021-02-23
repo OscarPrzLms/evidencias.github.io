@@ -21,7 +21,7 @@ async function sendMessageWhatsApp(body) {
             to: `whatsapp:+521${body.telefono}`,
             from: 'whatsapp:+14155238886', 
             body: body.mensaje,    
-            mediaUrl: body.mediaUrl
+            //mediaUrl: body.mediaUrl
           }) 
           .then(message => console.log(message))
           .done();
