@@ -134,7 +134,8 @@ export default {
     
       try {
 
-        let sesion = await axios.post("http://localhost:3000/sesionWhatsApp/", mensajeWhatsApp)
+        // let sesion = await axios.post("http://localhost:3000/sesionWhatsApp/", mensajeWhatsApp)
+        let sesion = await axios.post("http://localhost:3000/conversationWhatsApp/", mensajeWhatsApp)
         console.log(sesion);
 
        }catch(error){
