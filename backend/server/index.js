@@ -188,18 +188,20 @@ server.post('/sesionWhatsApp', async (req, res) => {
 
     
     
-    res.json({
-      ok:true,
-      sesionWhastApp: evidencia
-     })
+    // res.json({
+    //   ok:true,
+    //   sesionWhastApp: evidencia
+    //  })
+
+
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
 
 
 
    });
     //Agregado
 
-    res.writeHead(200, {'Content-Type': 'text/xml'});
-    res.end(twiml.toString());
 
 });
 
