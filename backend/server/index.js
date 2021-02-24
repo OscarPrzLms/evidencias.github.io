@@ -146,18 +146,59 @@ server.post('/sesionWhatsApp', async (req, res) => {
 
 //------------------ WebHook WhatsApp --------------------
 
-server.post('/conversationWhatsApp', (req, res) => {
-  const twiml = new MessagingResponse();
+// server.post('/conversationWhatsApp', (req, res) => {
+//   const twiml = new MessagingResponse();
 
-  twiml.message('The Robots are coming! Head for the hills!');
+//   twiml.message('The Robots are coming! Head for the hills!');
 
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
-});
+//   res.writeHead(200, {'Content-Type': 'text/xml'});
+//   res.end(twiml.toString());
+// });
 
 // http.createServer(server).listen(1337, () => {
 //   console.log('Express server listening on port 1337');
 // });
+  
+  server.post('/conversationWhatsApp', async (req, res) => {
+
+    const twiml = new MessagingResponse();
+
+    twiml.message('The Robots are coming! Head for the hills!');
+
+    //Agregado
+    let body = req.body;
+  
+    let sesionWhastApp = new SesionWhastApp ({
+      telefono: body.telefono,
+      mensaje: body.mensaje,
+      mediaUrl: body.evidencia
+  
+    })
+
+    await sendMessageWhatsApp(sesionWhastApp)
+
+    sesionWhastApp.save( (err, evidencia) => {
+
+     if( err ) {
+       return res.status(400).json({
+         ok:false,
+         err
+       })
+     }
+
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+    res.json({
+      ok:true,
+      sesionWhastApp: evidencia
+     })
+
+   });
+    //Agregado
+
+    
+
+});
 
 //=================== Static Files ============================
 
